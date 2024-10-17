@@ -3,9 +3,8 @@ import {
   getSearchMovie,
   getMovieImage,
 } from '../api/movies.js'
+import { updateBanner } from './banner.js'
 
-const bannerTitle = document.querySelector('.banner-title')
-const bannerImg = document.querySelector('.banner-button img')
 const movieList = document.querySelector('.movie-list')
 
 export async function updateMovieCards(query) {
@@ -16,7 +15,7 @@ export async function updateMovieCards(query) {
     : (movies = await getPopularMovies())
 
   if (movies && movies.length > 0) {
-    createInitialBanner(movies[Math.floor(Math.random() * movies.length)])
+    updateBanner(movies[Math.floor(Math.random() * movies.length)])
 
     movieList.innerHTML = ''
     movies.forEach((movie) => {
@@ -24,13 +23,6 @@ export async function updateMovieCards(query) {
       movieList.appendChild(movieCard)
     })
   }
-}
-
-// 배너 초기 세팅 함수
-function createInitialBanner(movie) {
-  bannerTitle.innerHTML = movie.title
-  bannerImg.src = getMovieImage(movie.poster_path)
-  bannerImg.alt = `${movie.title}`
 }
 
 // 영화 카드 생성 함수
