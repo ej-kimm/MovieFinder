@@ -33,6 +33,7 @@ function makeMovieCard(movie) {
   const movieCard = document.createElement('button')
   movieCard.classList.add('movie-card')
   movieCard.id = movie.id // Detail을 불러오기 위한 id
+  movieCard.backdropPath = movie.backdrop_path
 
   const imgWrapper = document.createElement('div')
   imgWrapper.classList.add('img-wrapper')
@@ -74,10 +75,10 @@ movieList.addEventListener('mouseover', function (e) {
 
   if (hoveredCard) {
     const movieTitle = hoveredCard.querySelector('h2').textContent
-    const moviePoster = hoveredCard.querySelector('img').src
+    const backdropPath = hoveredCard.backdropPath
 
     hoverTimeout = setTimeout(() => {
-      updateBanner({ title: movieTitle, poster_path: moviePoster })
+      updateBanner({ title: movieTitle, backdrop_path: backdropPath })
     }, 1000)
   }
 })
