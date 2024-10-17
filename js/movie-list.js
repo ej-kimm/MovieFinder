@@ -31,12 +31,17 @@ function createInitialBanner(movie) {
 
 // 영화 카드 생성 함수
 function makeMovieCard(movie) {
-  const movieCard = document.createElement('div')
+  const movieCard = document.createElement('button')
   movieCard.classList.add('movie-card')
+
+  const imgWrapper = document.createElement('div')
+  imgWrapper.classList.add('img-wrapper')
 
   const movieImg = document.createElement('img')
   movieImg.src = getMovieImage(movie.poster_path)
   movieImg.alt = `${movie.title}`
+
+  imgWrapper.appendChild(movieImg)
 
   const movieTitle = document.createElement('h2')
   movieTitle.textContent = movie.title
@@ -45,7 +50,7 @@ function makeMovieCard(movie) {
   const rating = Math.floor(movie.vote_average)
   movieRating.textContent = '⭐'.repeat(rating)
 
-  movieCard.appendChild(movieImg)
+  movieCard.appendChild(imgWrapper)
   movieCard.appendChild(movieTitle)
   movieCard.appendChild(movieRating)
 
