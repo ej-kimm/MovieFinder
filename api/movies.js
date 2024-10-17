@@ -23,3 +23,12 @@ export async function getSearchMovie(title) {
     .then((data) => data.results)
     .catch((err) => console.error(err))
 }
+
+export async function getMovieDetail(id) {
+  return fetch(
+    `${MOVIE_API_BASE_URL}/movie/${id}?api_key=${API_KEY}&language=ko-KR`
+  )
+    .then((response) => response.json())
+    .then((data) => data)
+    .catch((err) => console.error(err))
+}

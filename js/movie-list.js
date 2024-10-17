@@ -2,8 +2,10 @@ import {
   getPopularMovies,
   getSearchMovie,
   getMovieImage,
+  getMovieDetail,
 } from '../api/movies.js'
 import { updateBanner } from './banner.js'
+import { updateMovieDetail } from './movie-detail.js'
 
 const movieList = document.querySelector('.movie-list')
 let hoverTimeout = null
@@ -30,6 +32,7 @@ export async function updateMovieCards(query) {
 function makeMovieCard(movie) {
   const movieCard = document.createElement('button')
   movieCard.classList.add('movie-card')
+  movieCard.id = movie.id // Detail을 불러오기 위한 id
 
   const imgWrapper = document.createElement('div')
   imgWrapper.classList.add('img-wrapper')
@@ -53,6 +56,17 @@ function makeMovieCard(movie) {
 
   return movieCard
 }
+
+// movie-card 클릭했을 때 영화 세부정보 모달창을 띄움
+movieList.addEventListener('click', async function (e) {
+  const clickedCard = e.target.closest('.movie-card')
+  const movieId = clickedCard.id
+
+  if (clickedCard) {
+    const movieDetail = await getMovieDetail(movieId)
+    updateMovieDetail(movieDetail)
+  }
+})
 
 // movie-card hover(1초)했을 때 banner 사진 변경
 movieList.addEventListener('mouseover', function (e) {
