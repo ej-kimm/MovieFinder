@@ -1,6 +1,6 @@
 const API_KEY = '22fbac1adbd9708d5158d657e4a4dbb4'
 const MOVIE_API_BASE_URL = 'https://api.themoviedb.org/3/movie'
-const IMAGE_API_BASE_URL = 'https://image.tmdb.org/t/p/w500'
+const IMAGE_API_BASE_URL = 'https://image.tmdb.org/t/p/original'
 
 export async function getPopularMovies() {
   return fetch(

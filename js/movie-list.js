@@ -1,12 +1,18 @@
 import { getPopularMovies } from '../api/movies.js'
 import { getMovieImage } from '../api/movies.js'
 
+const FIRST_BANNER_NUMBER = Math.floor(Math.random() * 20)
+
+const bannerTitle = document.querySelector('.banner-title')
+const bannerImg = document.querySelector('.banner-button img')
 const movieList = document.querySelector('.movie-list')
 
 async function updateMovieCards() {
   const movies = await getPopularMovies()
 
   if (movies && movies.length > 0) {
+    createInitialBanner(movies[FIRST_BANNER_NUMBER])
+
     movies.forEach((movie) => {
       const movieCard = makeMovieCard(movie)
       movieList.appendChild(movieCard)
@@ -16,7 +22,14 @@ async function updateMovieCards() {
   }
 }
 
-// 영화 카드 생성함수
+// 배너 초기 세팅 함수
+function createInitialBanner(movie) {
+  bannerTitle.innerHTML = movie.title
+  bannerImg.src = getMovieImage(movie.poster_path)
+  bannerImg.alt = `${movie.title}`
+}
+
+// 영화 카드 생성 함수
 function makeMovieCard(movie) {
   const movieCard = document.createElement('div')
   movieCard.classList.add('movie-card')

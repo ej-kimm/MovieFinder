@@ -12,8 +12,24 @@
     />
     <link rel="stylesheet" href="./styles/base/normalize.css" />
     <link rel="stylesheet" href="./styles/base/reset.css" />
+    <link rel="stylesheet" href="./styles/layouts/search-header.css" />
   </head>
   <body>
+    <header class="search-header">
+      <button class="banner-button" type="button">
+        <h1 class="banner-title"></h1>
+        <img src="" alt="" />
+      </button>
+      <div class="search-bar">
+        <input
+          class="search-input"
+          type="text"
+          placeholder="영화제목을 입력하세요"
+        />
+        <button class="search-button" type="button">Search</button>
+      </div>
+    </header>
+
     <main class="movie-list"></main>
 
     <script type="module" src="./js/movie-list.js"></script>
