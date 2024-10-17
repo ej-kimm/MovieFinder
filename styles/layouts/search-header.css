@@ -78,3 +78,51 @@
 .search-bar .search-button:hover {
   background-color: #f0584a;
 }
+
+/* <= 1257px */
+@media screen and (max-width: 1257px) {
+  .search-bar .search-input {
+    width: 600px;
+    font-size: 16px;
+  }
+
+  .search-bar .search-button {
+    font-size: 16px;
+  }
+}
+
+/* <= 995px */
+@media screen and (max-width: 995px) {
+  .banner-title {
+    font-size: 50px;
+  }
+
+  .search-bar .search-input {
+    width: 400px;
+  }
+
+  .search-bar .search-button {
+    padding: 20px 30px;
+  }
+}
+
+/* <= 630px */
+@media screen and (max-width: 630px) {
+  .search-header {
+    padding: 30px 30px 80px;
+  }
+
+  .banner-title {
+    display: none;
+  }
+
+  .search-bar .search-input {
+    width: 200px;
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+
+  .search-bar .search-button {
+    display: none;
+  }
+}
