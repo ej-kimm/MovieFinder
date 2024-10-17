@@ -6,6 +6,7 @@ import {
 import { updateBanner } from './banner.js'
 
 const movieList = document.querySelector('.movie-list')
+let hoverTimeout = null
 
 export async function updateMovieCards(query) {
   let movies = null
@@ -15,7 +16,7 @@ export async function updateMovieCards(query) {
     : (movies = await getPopularMovies())
 
   if (movies && movies.length > 0) {
-    updateBanner(movies[Math.floor(Math.random() * movies.length)])
+    updateBanner(movies[Math.floor(Math.random() * movies.length)]) // 초기 Banner 사진 랜덤 설정
 
     movieList.innerHTML = ''
     movies.forEach((movie) => {
@@ -52,5 +53,29 @@ function makeMovieCard(movie) {
 
   return movieCard
 }
+
+// movie-card hover(1초)했을 때 banner 사진 변경
+movieList.addEventListener('mouseover', function (e) {
+  const hoveredCard = e.target.closest('.movie-card')
+
+  if (hoveredCard) {
+    const movieTitle = hoveredCard.querySelector('h2').textContent
+    const moviePoster = hoveredCard.querySelector('img').src
+
+    hoverTimeout = setTimeout(() => {
+      updateBanner({ title: movieTitle, poster_path: moviePoster })
+    }, 1000)
+  }
+})
+
+// movie-card 1초 전에 hover를 떼어도 banner 사진 변경 금지
+movieList.addEventListener('mouseout', function (e) {
+  const hoveredCard = e.target.closest('.movie-card')
+
+  if (hoveredCard && hoverTimeout) {
+    clearTimeout(hoverTimeout)
+    hoverTimeout = null
+  }
+})
 
 window.onload = updateMovieCards()
