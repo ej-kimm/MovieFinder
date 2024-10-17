@@ -1,24 +1,28 @@
-import { getPopularMovies } from '../api/movies.js'
-import { getMovieImage } from '../api/movies.js'
-
-const FIRST_BANNER_NUMBER = Math.floor(Math.random() * 20)
+import {
+  getPopularMovies,
+  getSearchMovie,
+  getMovieImage,
+} from '../api/movies.js'
 
 const bannerTitle = document.querySelector('.banner-title')
 const bannerImg = document.querySelector('.banner-button img')
 const movieList = document.querySelector('.movie-list')
 
-async function updateMovieCards() {
-  const movies = await getPopularMovies()
+export async function updateMovieCards(query) {
+  let movies = null
+
+  query
+    ? (movies = await getSearchMovie(query))
+    : (movies = await getPopularMovies())
 
   if (movies && movies.length > 0) {
-    createInitialBanner(movies[FIRST_BANNER_NUMBER])
+    createInitialBanner(movies[Math.floor(Math.random() * movies.length)])
 
+    movieList.innerHTML = ''
     movies.forEach((movie) => {
       const movieCard = makeMovieCard(movie)
       movieList.appendChild(movieCard)
     })
-  } else {
-    alert('😅영화를 찾을 수 없습니다!')
   }
 }
 
@@ -57,4 +61,4 @@ function makeMovieCard(movie) {
   return movieCard
 }
 
-window.onload = updateMovieCards
+window.onload = updateMovieCards()
