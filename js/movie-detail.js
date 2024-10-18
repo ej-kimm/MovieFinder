@@ -22,6 +22,8 @@ export function updateMovieDetail(movie) {
       )
       .join(' ')
     overview.textContent = movie.overview
+      ? movie.overview
+      : '😂줄거리가 없습니다'
     releaseDate.textContent = movie.release_date
     rating.textContent = '⭐'.repeat(Math.floor(movie.vote_average))
     overlay.style.backgroundImage = `url(${getMovieImage(movie.backdrop_path)})`
