@@ -1,0 +1,112 @@
+.movie-detail {
+  position: fixed;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  z-index: 999999;
+  width: 1100px;
+  padding: 40px;
+  visibility: hidden;
+  transform: translate(-50%, -50%);
+  background-color: #1d1d20;
+}
+
+.movie-detail.is-active {
+  visibility: visible;
+}
+
+.poster {
+  flex: 4;
+  width: auto;
+  min-height: 500px;
+  background-image: url(https://blog.kakaocdn.net/dn/bmIwxA/btrVE1Ql6YL/kfImMiXEd19Kch9ziopPj0/img.jpg);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 20px;
+}
+
+.movie-detail-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex: 6;
+}
+
+.movie-detail-info dt {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.movie-detail-info dd {
+  font-size: 20px;
+}
+
+.movie-detail-info .title {
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.movie-detail-info .title dd {
+  font-size: 50px;
+}
+
+.movie-detail-info .genre {
+  margin-bottom: 30px;
+}
+
+.movie-detail-info .overview {
+  overflow: hidden;
+  margin-bottom: 30px;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+}
+
+.movie-detail-info .movie-meta {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.movie-detail-info .title dt,
+.movie-detail-info .genre dt {
+  display: none;
+}
+
+/* close button */
+.btn-close {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+}
+
+.btn-close::before,
+.btn-close::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 2px;
+  background-color: #fff;
+  transition: background-color 200ms ease-in-out;
+}
+
+.btn-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.btn-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.btn-close:hover::before,
+.btn-close:hover::after {
+  background-color: #a8b3ad;
+}
