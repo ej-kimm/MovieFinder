@@ -76,8 +76,17 @@
   text-align: center;
 }
 
+.movie-detail-info .bookmark dd button {
+  cursor: pointer;
+}
+
+.movie-detail-info .bookmark dd button:hover {
+  background-color: rgb(238, 146, 7);
+}
+
 .movie-detail-info .title dt,
-.movie-detail-info .genre dt {
+.movie-detail-info .genre dt,
+.movie-detail-info .bookmark dt {
   display: none;
 }
 
