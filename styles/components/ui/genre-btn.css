@@ -1,0 +1,21 @@
+/* NOTE: Button Styles */
+.btn-primary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8px;
+  font-weight: 700;
+  border-radius: 4px;
+  color: #fff;
+  background-color: rgb(216, 143, 34);
+  transition: background-color 200ms ease-in-out;
+  cursor: none;
+}
+
+/* NOTE: Button Sizes */
+.btn-32 {
+  font-size: 18x;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  height: 32px;
+}
