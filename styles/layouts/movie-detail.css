@@ -6,6 +6,7 @@
   z-index: 999999;
   width: 1100px;
   padding: 40px;
+  border-radius: 10px;
   visibility: hidden;
   transform: translate(-50%, -50%);
   background-color: #1d1d20;
@@ -23,7 +24,7 @@
   flex: 4;
   width: auto;
   min-height: 500px;
-  background-image: url(https://blog.kakaocdn.net/dn/bmIwxA/btrVE1Ql6YL/kfImMiXEd19Kch9ziopPj0/img.jpg);
+  background-image: url('');
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
