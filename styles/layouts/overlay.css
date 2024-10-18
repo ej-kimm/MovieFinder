@@ -11,7 +11,7 @@
   background-size: cover;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+  transition: opacity 400ms ease-in-out, visibility 400ms ease-in-out;
 }
 
 .overlay.is-active {
