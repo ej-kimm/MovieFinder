@@ -9,9 +9,13 @@
   visibility: hidden;
   transform: translate(-50%, -50%);
   background-color: #1d1d20;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
 }
 
 .movie-detail.is-active {
+  opacity: 1;
   visibility: visible;
 }
 
