@@ -1,9 +1,9 @@
-import { getMovieImage } from '../api/movies.js'
 import {
   isMovieBookmarked,
   removeToBookmark,
   saveToBookmark,
-} from './bookmark.js'
+} from '../api/bookmark.js'
+import { getMovieImage } from '../api/movies.js'
 
 const movieDetail = document.querySelector('.movie-detail')
 const poster = document.querySelector('.poster')
