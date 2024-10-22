@@ -3,6 +3,11 @@ export function isMovieBookmarked(movieId) {
   return bookmarks.find((bookmark) => bookmark.id === movieId)
 }
 
+export function getBookmarkedMovies() {
+  const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || []
+  return bookmarks
+}
+
 export function saveToBookmark(movie) {
   const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || []
 

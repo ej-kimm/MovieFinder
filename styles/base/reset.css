@@ -66,3 +66,13 @@ li {
 address {
   font-style: normal;
 }
+
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 30%;
+  background: rgba(216, 210, 210, 0.493);
+  border-radius: 10px;
+}

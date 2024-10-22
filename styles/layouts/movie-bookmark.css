@@ -1,0 +1,73 @@
+/* 북마크 */
+.movie-bookmark {
+  position: fixed;
+  right: 10px;
+  bottom: 20px;
+  background-color: #ff6f61;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 300ms ease;
+}
+
+.movie-bookmark:hover {
+  transform: scale(1.1);
+}
+
+.movie-bookmark svg {
+  width: 40px;
+  height: 40px;
+  fill: #333;
+  transition: fill 300ms ease;
+}
+
+.movie-bookmark:hover svg {
+  fill: #000;
+}
+
+/* 북마크 리스트 팝업 */
+.movie-bookmark-list {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  right: 10px;
+  bottom: 90px;
+  width: 700px;
+  height: 500px;
+  background-color: #27272c;
+  border-radius: 8px;
+  padding: 30px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 400ms ease-in-out, visibility 400ms ease-in-out,
+    transform 400ms ease-in-out;
+}
+
+.movie-bookmark-list.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.movie-bookmark-list h3 {
+  font-size: 25px;
+  margin-bottom: 25px;
+}
+
+.movie-bookmark-list .bookmarks {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* 스크롤바 */
+.movie-bookmark-list::-webkit-scrollbar {
+  display: none;
+}
