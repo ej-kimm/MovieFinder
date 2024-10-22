@@ -6,33 +6,3 @@
   gap: 20px;
   margin: 0 80px 40px;
 }
-
-/* 북마크 */
-.movie-bookmark {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  background-color: #ff6f61;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 300ms ease;
-}
-
-.movie-bookmark:hover {
-  transform: scale(1.1);
-}
-
-.movie-bookmark svg {
-  width: 40px;
-  height: 40px;
-  fill: #333;
-  transition: fill 300ms ease;
-}
-
-.movie-bookmark:hover svg {
-  fill: #000;
-}
