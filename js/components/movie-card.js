@@ -11,7 +11,7 @@ export function makeMovieCard(movie) {
   imgWrapper.classList.add('img-wrapper')
 
   const movieImg = document.createElement('img')
-  movieImg.src = getMovieImage(movie.poster_path)
+  movieImg.src = getMovieImage(movie.poster_path, 200)
   movieImg.alt = `${movie.title}`
 
   imgWrapper.appendChild(movieImg)

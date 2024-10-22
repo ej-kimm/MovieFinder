@@ -24,7 +24,10 @@ let currentMovie = null
 export function updateMovieDetail(movie) {
   if (movie) {
     currentMovie = movie
-    poster.style.backgroundImage = `url(${getMovieImage(movie.poster_path)})`
+    poster.style.backgroundImage = `url(${getMovieImage(
+      movie.poster_path,
+      500
+    )})`
     title.textContent = movie.title
     genre.innerHTML = movie.genres
       .map(
@@ -36,7 +39,10 @@ export function updateMovieDetail(movie) {
       : '😂줄거리가 없습니다'
     releaseDate.textContent = movie.release_date
     rating.textContent = '⭐'.repeat(Math.floor(movie.vote_average))
-    overlay.style.backgroundImage = `url(${getMovieImage(movie.backdrop_path)})`
+    overlay.style.backgroundImage = `url(${getMovieImage(
+      movie.backdrop_path,
+      'original'
+    )})`
 
     movieDetail.classList.toggle('is-active')
     overlay.classList.toggle('is-active')
