@@ -71,3 +71,18 @@
 .movie-bookmark-list::-webkit-scrollbar {
   display: none;
 }
+
+/* <= 995px */
+@media screen and (max-width: 995px) {
+  .movie-bookmark-list {
+    width: 250px;
+    height: 500px;
+  }
+}
+
+/* <= 630px */
+@media screen and (max-width: 630px) {
+  .movie-bookmark-list {
+    height: 400px;
+  }
+}
