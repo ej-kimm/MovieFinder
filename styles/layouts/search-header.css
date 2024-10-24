@@ -85,13 +85,14 @@
   display: flex;
   bottom: 20px;
   right: 80px;
-  gap: 15px;
+  gap: 8px;
 }
 
 .btn-prev,
 .btn-next {
   fill: #fff;
   transition: fill 200ms ease-in-out;
+  padding: 0 10px;
 }
 
 .btn-prev:hover,
