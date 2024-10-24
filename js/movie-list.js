@@ -2,20 +2,28 @@ import {
   getPopularMovies,
   getSearchMovie,
   getMovieDetail,
+  getTotalPage,
 } from '../api/movies.js'
 import { updateBanner } from './banner.js'
 import { makeMovieCard } from './components/movie-card.js'
 import { updateMovieDetail } from './movie-detail.js'
 
 const movieList = document.querySelector('.movie-list')
+const current = document.querySelector('.current')
+const btnPrev = document.querySelector('.btn-prev')
+const btnNext = document.querySelector('.btn-next')
+
 let hoverTimeout = null
+let currentPage = 1
+let lastPage = null
 
 export async function updateMovieCards(query) {
   let movies = null
 
+  lastPage = await getTotalPage()
   query
     ? (movies = await getSearchMovie(query))
-    : (movies = await getPopularMovies())
+    : (movies = await getPopularMovies(currentPage))
 
   if (movies && movies.length > 0) {
     updateBanner(movies[Math.floor(Math.random() * movies.length)]) // 초기 Banner 사진 랜덤 설정
@@ -25,6 +33,8 @@ export async function updateMovieCards(query) {
       const movieCard = makeMovieCard(movie)
       movieList.appendChild(movieCard)
     })
+
+    current.innerHTML = `${currentPage} / ${lastPage}`
   }
 }
 
@@ -61,6 +71,18 @@ movieList.addEventListener('mouseout', function (e) {
     clearTimeout(hoverTimeout)
     hoverTimeout = null
   }
+})
+
+btnPrev.addEventListener('click', function () {
+  if (currentPage === 1) return
+  currentPage -= 1
+  updateMovieCards()
+})
+
+btnNext.addEventListener('click', function () {
+  if (currentPage === lastPage) return
+  currentPage += 1
+  updateMovieCards()
 })
 
 window.onload = updateMovieCards()

@@ -80,6 +80,29 @@
   background-color: #f0584a;
 }
 
+.button-wrapper {
+  position: absolute;
+  display: flex;
+  bottom: 20px;
+  right: 80px;
+  gap: 15px;
+}
+
+.btn-prev,
+.btn-next {
+  fill: #fff;
+  transition: fill 200ms ease-in-out;
+}
+
+.btn-prev:hover,
+.btn-next:hover {
+  fill: #a1a5bbb0;
+}
+
+.current {
+  font-size: 20px;
+}
+
 /* <= 1257px */
 @media screen and (max-width: 1257px) {
   .search-bar .search-input {
